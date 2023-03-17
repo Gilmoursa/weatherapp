@@ -1,0 +1,106 @@
+body {
+    height: 100%;
+    margin: 0;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.hot {
+    background: rgb(131, 58, 180);
+    background: linear-gradient(0deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.cold {
+    background: rgb(238, 174, 202);
+    background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    width: 50%;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+    background-color: #fff;
+    border: 2px solid #000;
+    ;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 60px;
+    margin-bottom: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+button[type="submit"] {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+#weather {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    margin: auto;
+}
+
+#weather p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#weather p:last-child {
+    margin-bottom: 0;
+}
+
+/*  media queries */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}
