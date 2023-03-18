@@ -66,12 +66,13 @@ h1 {
     margin-left: 10px;
 }
 
-.temperature {
+.temperature, .wind {
     margin-bottom: 20px;
     cursor: pointer;
 }
 
-.temperature-degree {
+
+.temperature-degree, .humidity, .wind-speed {
     display: inline;
 }
 
@@ -79,7 +80,7 @@ h1 {
     display: block;
 }
 
-.temperature span {
+.temperature span, .wind span {
     margin: 5px;
     font-size: 15px;
     color: #eb0808;

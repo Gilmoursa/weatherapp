@@ -11,7 +11,9 @@ const nameClass = document.querySelector('.name');
 const descriptionClass = document.querySelector('.description');
 const tempClass = document.querySelector('.temperature-degree');
 const humidityClass = document.querySelector('.humidity');
+const windSpeedSection = document.querySelector('.wind');
 const windSpeedClass = document.querySelector('.wind-speed');
+const windSpeedSpan = document.querySelector('.wind span');
 const sunriseClass = document.querySelector('.sunrise');
 const sunsetClass = document.querySelector('.sunset');
 const weatherImageClass = document.querySelector('.weather-img');
@@ -34,12 +36,17 @@ window.addEventListener('load', () => {
                     const { main, name, weather } = data;
                     const description = weather[0].description;
                     const icon = weather[0].icon;
-                    const tempF = main.temp.toFixed(1);
+                    
                     const humidity = main.humidity;
-                    const windSpeed = data.wind.speed.toFixed(0);
                     const sunrise = data.sys.sunrise;
                     const sunset = data.sys.sunset;
+
+                    const tempF = main.temp.toFixed(1);
                     const tempC = ((tempF - 32) * (5 / 9)).toFixed(1);
+
+                    const windSpeedMph = data.wind.speed.toFixed(0);
+                    const windSpeedKph = (windSpeedMph * 1.609).toFixed(0);
+
                     // change background color based on temperature
                     if (tempF < 70) {
                         body.classList.remove("hot");
@@ -55,7 +62,7 @@ window.addEventListener('load', () => {
                     descriptionClass.textContent = description;
                     tempClass.textContent = tempF;
                     humidityClass.textContent = humidity;
-                    windSpeedClass.textContent = windSpeed;
+                    windSpeedClass.textContent = windSpeedMph;
                     sunriseClass.textContent = new Date(sunrise * 1000).toLocaleTimeString();
                     sunsetClass.textContent = new Date(sunset * 1000).toLocaleTimeString();
 
@@ -67,6 +74,17 @@ window.addEventListener('load', () => {
                         }else {
                             temperatureSpan.textContent = "F";
                             tempClass.textContent = tempF;
+                        }
+                    });
+
+                    // change wind speed to KPH/MPH
+                    windSpeedSection.addEventListener('click', () => {
+                        if(windSpeedSpan.textContent === "mph") {
+                            windSpeedSpan.textContent = "kph";
+                            windSpeedClass.textContent = windSpeedKph;
+                        }else {
+                            windSpeedSpan.textContent = "mph";
+                            windSpeedClass.textContent = windSpeedMph;
                         }
                     });
                     
