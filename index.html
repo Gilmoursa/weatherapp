@@ -13,13 +13,34 @@
     <div class="container">
         <h1>Weather App</h1>
         <p>brought to you by the Open Weather API</p>
-        <form>
-            <label for="city">Enter a city name:</label>
-            <input type="text" id="city" name="city">
-            <button type="submit">Get Weather</button>
-        </form>
-        <div id="weather"></div>
-        <div id="map"></div>
+        <div id="weather">
+            <div class="weather-container">
+                <div class="weather-col-one">
+                    <p>Current weather in </p>
+                    <h2 class="name"></h2>
+                    <div class="weather-img"></div>
+                    <p class="description"></p>
+                    <div class="temperature">
+                        <div class="degree-section"></div>
+                        <h2>Temperature:</h2>
+                        <p class="temperature-degree"></p>
+                        <span class="temperature-unit">F</span>
+                    </div>
+                    <div class="temperature-description"></div>
+                    </p>
+                </div>
+                <div class="weather-col-two">
+                    <h2>Humidity:</h2>
+                    <p class="humidity"></p>
+                    <h2>Wind Speed:</h2>
+                    <p class="wind-speed"></p>
+                    <h2>Sunrise:</h2>
+                    <p class="sunrise"></p>
+                    <h2>Sunset:</h2>
+                    <p class="sunset"></p>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
