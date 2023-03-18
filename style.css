@@ -9,6 +9,13 @@ body {
     color: #333;
 }
 
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 60px;
+    margin-bottom: 5px;
+}
+
 .hot {
     background: rgb(131, 58, 180);
     background: linear-gradient(0deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
@@ -43,12 +50,34 @@ body {
     margin: 0 auto;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 60px;
-    margin-bottom: 5px;
+.weather-col-one {
+    flex: 1;
+    margin-right: 10px;
 }
+
+.weather-col-two {
+    flex: 1;
+    margin-left: 10px;
+}
+
+#weather {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    max-width: 800px;
+    margin: auto;
+}
+
+#weather p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#weather p:last-child {
+    margin-bottom: 0;
+}
+
+/* form styling */
 
 form {
     display: flex;
@@ -86,45 +115,14 @@ button[type="submit"]:hover {
     background-color: #3e8e41;
 }
 
-#weather {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #fff;
-    max-width: 800px;
-    margin: auto;
-}
-
-#weather p {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-#weather p:last-child {
-    margin-bottom: 0;
-}
 
 /*  media queries */
-@media screen and (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
-}
-
-.weather-col-one {
-    flex: 1;
-    margin-right: 10px;
-}
-
-.weather-col-two {
-    flex: 1;
-    margin-left: 10px;
-}
-
 /* Stack the columns vertically on mobile devices */
 @media only screen and (max-width: 700px) {
+
     .weather-col-one,
     .weather-col-two {
-      flex: 0 0 100%;
-      margin: 0 0 30px;
+        flex: 0 0 100%;
+        margin: 0 0 30px;
     }
-  }
+}
