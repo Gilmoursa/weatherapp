@@ -32,6 +32,36 @@ function degToCompass(deg) {
     return dirs[Math.round(deg / 22.5) % 16];
 }
 
+function getBackground(weatherMain, tempF) {
+    const t = parseFloat(tempF);
+    switch (weatherMain) {
+        case 'Thunderstorm':
+            return 'linear-gradient(180deg, #0f0c29 0%, #302b63 50%, #24243e 100%)';
+        case 'Drizzle':
+        case 'Rain':
+            return t < 40
+                ? 'linear-gradient(180deg, #1c3144 0%, #37678a 100%)'
+                : 'linear-gradient(180deg, #3a5f7d 0%, #7ba7bc 100%)';
+        case 'Snow':
+            return 'linear-gradient(180deg, #a8c8e8 0%, #ddeeff 50%, #f5faff 100%)';
+        case 'Atmosphere': // mist, fog, haze, smoke, dust
+            return 'linear-gradient(180deg, #757f9a 0%, #c9d3dd 100%)';
+        case 'Clear':
+            if (t >= 95) return 'linear-gradient(180deg, #b34a00 0%, #e8720c 50%, #f9c74f 100%)';
+            if (t >= 80) return 'linear-gradient(180deg, #f7971e 0%, #fcd34d 100%)';
+            if (t >= 65) return 'linear-gradient(180deg, #1e90ff 0%, #87ceeb 100%)';
+            if (t >= 50) return 'linear-gradient(180deg, #4facfe 0%, #a8d8ea 100%)';
+            if (t >= 32) return 'linear-gradient(180deg, #89c4e1 0%, #c9e8f5 100%)';
+            return 'linear-gradient(180deg, #6a85b6 0%, #bac8e0 100%)'; // freezing
+        case 'Clouds':
+            if (t >= 70) return 'linear-gradient(180deg, #757f9a 0%, #d7dde8 100%)';
+            if (t >= 50) return 'linear-gradient(180deg, #5f6d7e 0%, #a8b8c8 100%)';
+            return 'linear-gradient(180deg, #3d4e61 0%, #7a8fa6 100%)';
+        default:
+            return 'linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)';
+    }
+}
+
 function displayWeather(data) {
     const { main, name, weather, wind, visibility } = data;
     const description = weather[0].description;
@@ -57,13 +87,9 @@ function displayWeather(data) {
     const savedTempUnit = localStorage.getItem('tempUnit') || 'F';
     const savedWindUnit = localStorage.getItem('windUnit') || 'mph';
 
-    if (tempF < 70) {
-        body.classList.remove('hot');
-        body.classList.add('cold');
-    } else {
-        body.classList.add('hot');
-        body.classList.remove('cold');
-    }
+    body.style.background = getBackground(weather[0].main, tempF);
+    body.style.backgroundRepeat = 'no-repeat';
+    body.style.backgroundAttachment = 'fixed';
 
     nameClass.textContent = name;
     weatherImageClass.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}.png" alt="${description}">`;
