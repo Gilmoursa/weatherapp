@@ -11,14 +11,16 @@
 
 <body>
     <div class="container">
-        <h1>Weather App</h1>
-        <p>brought to you by the Open Weather API</p>
-
-        <form id="city-form">
-            <label for="city">Search by city:</label>
-            <input type="text" id="city" placeholder="e.g. London">
-            <button type="submit">Search</button>
-        </form>
+        <div class="header">
+            <div class="header-left">
+                <h1>Weather App</h1>
+                <p>brought to you by the Open Weather API</p>
+            </div>
+            <form id="city-form">
+                <input type="text" id="city" placeholder="Search city...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
 
         <div id="weather">
             <div class="weather-container">
