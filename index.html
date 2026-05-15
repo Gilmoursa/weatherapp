@@ -13,6 +13,13 @@
     <div class="container">
         <h1>Weather App</h1>
         <p>brought to you by the Open Weather API</p>
+
+        <form id="city-form">
+            <label for="city">Search by city:</label>
+            <input type="text" id="city" placeholder="e.g. London">
+            <button type="submit">Search</button>
+        </form>
+
         <div id="weather">
             <div class="weather-container">
                 <div class="weather-col-one">
@@ -26,8 +33,12 @@
                         <p class="temperature-degree"></p>
                         <span class="temperature-unit">F</span>
                     </div>
+                    <div class="feels-like">
+                        <h2>Feels Like:</h2>
+                        <p class="feels-like-degree"></p>
+                        <span class="feels-like-unit">F</span>
+                    </div>
                     <div class="temperature-description"></div>
-                    </p>
                 </div>
                 <div class="weather-col-two">
                     <h2>Humidity:</h2>
@@ -37,7 +48,10 @@
                         <h2>Wind Speed:</h2>
                         <p class="wind-speed"></p>
                         <span class="wind-unit">mph</span>
+                        <p class="wind-direction"></p>
                     </div>
+                    <h2>Visibility:</h2>
+                    <p class="visibility"></p>
                     <h2>Sunrise:</h2>
                     <p class="sunrise"></p>
                     <h2>Sunset:</h2>

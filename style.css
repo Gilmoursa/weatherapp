@@ -66,25 +66,35 @@ h1 {
     margin-left: 10px;
 }
 
-.temperature, .wind {
+.temperature, .wind, .feels-like {
     margin-bottom: 20px;
     cursor: pointer;
 }
 
+.feels-like {
+    cursor: default;
+}
 
-.temperature-degree, .humidity, .wind-speed {
+.temperature-degree, .humidity, .wind-speed, .feels-like-degree {
     display: inline;
 }
 
-.temperature h2 {
+.temperature h2, .feels-like h2 {
     display: block;
 }
 
-.temperature span, .wind span {
+.temperature span, .wind span, .feels-like span {
     margin: 5px;
     font-size: 15px;
     color: #eb0808;
     font-weight: bold;
+}
+
+.wind-direction {
+    display: inline;
+    font-size: 15px;
+    color: #555;
+    margin-left: 6px;
 }
 
 #weather {
@@ -101,52 +111,55 @@ h1 {
     margin-bottom: 0;
 }
 
-/* form styling */
+/* city search form */
 
-form {
+#city-form {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    gap: 8px;
+    margin-top: 16px;
+    flex-wrap: wrap;
 }
 
-label {
-    margin-bottom: 10px;
+#city-form label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
 }
 
-input[type="text"] {
-    padding: 5px;
+#city-form input[type="text"] {
+    padding: 5px 10px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    width: 250px;
-    margin-bottom: 10px;
+    width: 200px;
 }
 
-button[type="submit"] {
-    padding: 5px 10px;
+#city-form button[type="submit"] {
+    padding: 5px 14px;
     background-color: #4CAF50;
     color: #fff;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    margin: 10px;
 }
 
-button[type="submit"]:hover {
+#city-form button[type="submit"]:hover {
     background-color: #3e8e41;
 }
 
-
-/*  media queries */
-/* Stack the columns vertically on mobile devices */
+/* media queries */
 @media only screen and (max-width: 700px) {
-
     .weather-col-one,
     .weather-col-two {
         flex: 0 0 100%;
         margin: 0 0 30px;
+    }
+
+    #city-form {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
